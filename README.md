@@ -19,7 +19,7 @@ wrapped(function(error) {
 })
 ```
 
-## Arguments
+## Other function arguments
 
 Arguments to the wrapped function are passed through as you'd expect:
 
@@ -34,18 +34,15 @@ wrapped(1, 2, function(error, result) {
 })
 ```
 
-## Function signature
+## Callback function
 
-The wrapped function must be invoked with a callback as the last argument:
+By convention the last argument to the invocation of the wrapped function is treated as a callback.  If the last argument is not a function, no notification of timeouts will occur:
 
 ```javascript
-// this is ok
-wrapped(function() {
-
+var wrapped = timeoutify(function(callback) {
+  if(typeof callback == 'function') callback()
 })
 
-// These will all cause errors
+// don't care about success/failure so don't pass a callback
 wrapped()
-wrapped(1)
-wrapped(function(){}, true)
 ```

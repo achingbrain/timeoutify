@@ -3,18 +3,23 @@ var expect = require('chai').expect,
 
 describe('timeoutify', function() {
 
-  it('should error when callback not passed', function () {
+  it('should not notify when no callback is passed', function() {
     var func = timeoutify(function (callback) {
+      if(callback) callback()
     })
 
-    try {
-      func()
-    } catch (e) {
-      expect(e.code).to.equal('INVALID_ARGUMENTS')
-    }
+    func()
   })
 
-  it('should call through to callback when callback invoked', function (done) {
+  it('should not notify when non-function is passed', function() {
+    var func = timeoutify(function (callback) {
+      if(typeof callback == 'function') callback()
+    })
+
+    func(5)
+  })
+
+  it('should call through to callback when callback invoked', function(done) {
     var func = timeoutify(function (callback) {
       callback()
     })
@@ -26,7 +31,7 @@ describe('timeoutify', function() {
     })
   })
 
-  it('should support an arbitrary number of arguments', function (done) {
+  it('should support an arbitrary number of arguments', function(done) {
     var func = timeoutify(function () {
       var args = []
 
@@ -65,7 +70,7 @@ describe('timeoutify', function() {
     })
   })
 
-  it('should timeout when no response received', function (done) {
+  it('should timeout when no response received', function(done) {
     var func = timeoutify(function (callback) {}, 500)
 
     func(function (error) {

@@ -1,7 +1,7 @@
 {
   "name": "timeoutify",
   "description": "Wraps a function with a handler to invoke a callback with an error if a timeout threshold is passed",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/achingbrain/timeoutify",
   "repository": {
     "type": "git",
