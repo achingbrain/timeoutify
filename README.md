@@ -1,5 +1,7 @@
 # Timeoutify
 
+[![Build Status](https://travis-ci.org/achingbrain/timeoutify.svg)](https://travis-ci.org/achingbrain/timeoutify) [![Dependency Status](https://david-dm.org/achingbrain/timeoutify.svg?theme=shields.io)](https://david-dm.org/achingbrain/timeoutify) [![Coverage Status](https://img.shields.io/coveralls/achingbrain/timeoutify/master.svg)](https://coveralls.io/r/achingbrain/timeoutify)
+
 A module that will call the passed callback with an error if a timeout threshold is passed.
 
 ```javascript

@@ -80,4 +80,30 @@ describe('timeoutify', function() {
       done()
     })
   })
+
+  it('should not call callback after timeout', function(done) {
+    var timedOut = false
+    var callbackInvoked = false
+
+    var func = timeoutify(function (callback) {
+      setTimeout(function() {
+        callback()
+      }, 1000)
+    }, 500)
+
+    setTimeout(function() {
+      expect(timedOut).to.be.true
+      expect(callbackInvoked).to.be.false
+
+      done()
+    }, 1500)
+
+    func(function (error) {
+      if(error && error.code == 'TIMEOUT') {
+        timedOut = true
+      } else {
+        callbackInvoked = true
+      }
+    })
+  })
 })
