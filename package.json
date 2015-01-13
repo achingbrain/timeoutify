@@ -1,7 +1,7 @@
 {
   "name": "timeoutify",
   "description": "Wraps a function with a handler to invoke a callback with an error if a timeout threshold is passed",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/achingbrain/timeoutify",
   "repository": {
     "type": "git",
@@ -14,9 +14,7 @@
     "test": "istanbul cover _mocha",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "^1.0",
     "coveralls": "^2.8",
