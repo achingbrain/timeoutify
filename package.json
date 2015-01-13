@@ -15,15 +15,29 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
-
+    
   },
   "devDependencies": {
+    "chai": "^1.0",
     "coveralls": "^2.8",
     "istanbul": "^0.3.0",
     "mocha": "^2.0",
+    "pre-commit": "0.0.9",
     "proxyquire": "^1.0",
-    "chai": "^1.0",
     "sinon": "^1.8",
     "testsuite": "^1.0"
+  },
+  "jshintConfig": {
+    "asi": true,
+    "browser": false,
+    "browserify": true,
+    "curly": false,
+    "expr": true,
+    "indent": 2,
+    "loopfunc": true,
+    "node": true,
+    "trailing": true,
+    "undef": true,
+    "white": true
   }
 }
